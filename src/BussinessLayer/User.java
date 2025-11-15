@@ -1,6 +1,6 @@
 package BussinessLayer;
 
-public class User
+public abstract class User
 {
     private String userId;
     private String userName;
