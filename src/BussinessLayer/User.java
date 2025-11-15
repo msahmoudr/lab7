@@ -8,6 +8,8 @@ package BussinessLayer;
  *
  * @author msahm
  */
-public class User {
+public class User
+{
+    
     
 }
