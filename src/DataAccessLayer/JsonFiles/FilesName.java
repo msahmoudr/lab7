@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class FilesName
 {
-    public String usersFile = "DataAccessLayer/JsonFiles/users.json";
-    public String coursesFile = "DataAccessLayer/JsonFiles/courses.json";
+    public static String usersFile = "DataAccessLayer/JsonFiles/users.json";
+    public static String coursesFile = "DataAccessLayer/JsonFiles/courses.json";
 
 
 }
