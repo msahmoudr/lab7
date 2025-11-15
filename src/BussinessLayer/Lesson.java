@@ -4,10 +4,50 @@
  */
 package BussinessLayer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author msahm
  */
 public class Lesson {
+    private String lessonId;
+    private String title;
+    private String content;
+
+    public Lesson(String lessonId, String title, String content, ArrayList<String> resources) {
+        this.lessonId = lessonId;
+        this.title = title;
+        this.content = content;
+        this.resources = resources;
+    }
+
+    public String getLessonId() {
+        return lessonId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public ArrayList<String> getResources() {
+        return resources;
+    }
+    private ArrayList<String> resources;
+    
+    
+    
+    
+    @Override
+    public String toString()
+    { 
+        
+        return this.lessonId + "^" + this.title + "^" + this.content + "^" + this.resources.toString() ;
+    }
+    
     
 }
