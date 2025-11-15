@@ -16,7 +16,14 @@ public class Course {
     private String description;
     private String instructorId;
     private ArrayList<Lesson> lessons;
-    private ArrayList<Student> enrolledStudents;
+    private String [][] enrolledStudents;
+    
+    
+    
+    
+    
+  
+    
     
     
     
