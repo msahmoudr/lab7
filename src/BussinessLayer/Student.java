@@ -13,4 +13,12 @@ public class Student  extends User
         this.enrolledCourse = enrolledCourse;
         this.progress = progress;
     }
+
+    public ArrayList<String> getEnrolledCourse() {
+        return enrolledCourse;
+    }
+
+    public Map<String, ArrayList<String>> getProgress() {
+        return progress;
+    }
 }

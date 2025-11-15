@@ -10,4 +10,8 @@ public class Instructor extends User
         super(userId, userName, email, passwordHash, role);
         this.createdCourses = createdCourses;
     }
+
+    public ArrayList<String> getCreatedCourses() {
+        return createdCourses;
+    }
 }

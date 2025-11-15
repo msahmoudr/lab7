@@ -15,4 +15,24 @@ public abstract class User
         this.passwordHash = passwordHash;
         this.role = role;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean isRole() {
+        return role;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 }
