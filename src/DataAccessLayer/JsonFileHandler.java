@@ -20,9 +20,9 @@ public class JsonFileHandler
     {
 
         RuntimeTypeAdapterFactory<User> adapterFactory =
-                RuntimeTypeAdapterFactory.of(User.class, "type")
-                        .registerSubtype(Student.class, "student")
-                        .registerSubtype(Instructor.class, "instructor");
+                RuntimeTypeAdapterFactory.of(User.class, "role")
+                        .registerSubtype(Student.class, "false")
+                        .registerSubtype(Instructor.class, "true");
         return new GsonBuilder()
                 .registerTypeAdapterFactory(adapterFactory)
                 .setPrettyPrinting()
