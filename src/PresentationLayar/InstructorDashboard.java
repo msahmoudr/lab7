@@ -94,7 +94,8 @@ public class InstructorDashboard {
 
     private void attachListeners() {
         addButton.addActionListener(e -> {
-            // left intentionally empty
+            AddCourse addCourse= new AddCourse(InstructorDashboard.this.instructor);
+            addCourse.setVisible(true);
         });
 
         editButton.addActionListener(e -> {
@@ -223,7 +224,28 @@ public class InstructorDashboard {
     }
 
     public JPanel getMainPanel() { return mainPanel; }
+//here
+    public static void main(String[] args) {
+        Instructor demo = new Instructor(
+                "i01",
+                "John Instructor",
+                "john@mail.com",
+                "12345",
+                true,
+                new ArrayList<>()
+        );
 
+        SwingUtilities.invokeLater(() -> {
+            InstructorDashboard dash = new InstructorDashboard(demo);
+            JFrame f = new JFrame("Instructor Dashboard");
+            f.setContentPane(dash.getMainPanel());
+            f.setSize(900, 520);
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+        });
+    }
+//here
   
 
     private void initComponents() {}
