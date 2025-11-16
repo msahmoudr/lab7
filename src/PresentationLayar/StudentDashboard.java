@@ -7,6 +7,10 @@ import BussinessLayer.StudentController;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class StudentDashboard extends javax.swing.JFrame {
@@ -26,7 +30,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         this.student = s;
         setTitle("Student Dashboard");
         add(StudentDashboard);
-     
+
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -34,11 +38,45 @@ public class StudentDashboard extends javax.swing.JFrame {
         prepareStudentData();
        refreshCoursesList();
 
+        availableCoursesTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+
+                if (e.getClickCount() == 2) {
+                    if (availableCoursesTable.getSelectedRow() == -1)
+                    {
+                        JOptionPane.showMessageDialog(StudentDashboard.this, "Please Select Student ID", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else
+                    {
+                        String selectedCourseId = getSelectedCourseId();
+                        if(!student.getEnrolledCourse().contains(selectedCourseId))
+                        {
+                            new StudentController().addEnrolledCourse(student.getUserId(), selectedCourseId);
+                            CourseController courseController = new CourseController();
+                            courseController.enrollStudent(courseController.getCourseById(selectedCourseId), student);
+                            refreshCoursesList();
+                        }
+                    }
+                }
+            }
+        });
+
 
 
         setVisible(true);
 
     }
+    private String getSelectedCourseId()
+    {
+
+        int viewIndex = availableCoursesTable.getSelectedRow();
+        int modelIndex = availableCoursesTable.convertRowIndexToModel(viewIndex);
+        Object value = availableCoursesTable.getModel().getValueAt(modelIndex, 0);
+        return  (String) value;
+    }
+
     private void refreshCoursesList() {
         ArrayList<Course> courses = new CourseController().getAllCourses();
 
@@ -52,7 +90,7 @@ public class StudentDashboard extends javax.swing.JFrame {
            if(course.getEnrolledStudents().contains(student.getUserId()))
             data[i][2] = "Enrolled";
            else
-            data[i][2] = "Not Enrolled";
+            data[i][2] = "avaliable";
 
         }
 
@@ -89,4 +127,5 @@ public class StudentDashboard extends javax.swing.JFrame {
     public static void main(String[] args) {
         new StudentDashboard(new StudentController().getStudentById("s01"));
     }
+
 }
