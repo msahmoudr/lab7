@@ -61,6 +61,7 @@ public class StudentDashboard extends javax.swing.JFrame {
                         }
                         else
                         {
+                            System.out.println(new CourseController().getCourseById(selectedCourseId).getCourseId());
                             new StudentProgress(new CourseController().getCourseById(selectedCourseId), student);
                         }
                     }

@@ -15,14 +15,16 @@ public class Course {
     private String title;
     private String description;
     private String instructorId;
-    private ArrayList<Lesson> lessons;
-    private ArrayList<String> enrolledStudents;
+    private ArrayList<Lesson> lessons = new ArrayList<>();
+    private ArrayList<String> enrolledStudents  = new ArrayList<>();
     public Course(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents) {
         this.courseId = courseId;
         this.title = title;
         this.description = description;
         this.instructorId = instructorId;
+        if (lessons != null)
         this.lessons = lessons;
+        if (enrolledStudents != null)
         this.enrolledStudents = enrolledStudents;
     }
     

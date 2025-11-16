@@ -29,6 +29,7 @@ public class StudentProgress extends JFrame {
     public StudentProgress(Course course, Student student) {
         this.course = course;
         this.student = student;
+        System.out.println("dsgsfg");
         if (course==null||student==null)
             throw new IllegalArgumentException("Student Data cannot be null.");
         setTitle("Student Dashboard");
@@ -39,6 +40,8 @@ public class StudentProgress extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+        prepareForm();
         pack();
         btnSearch.addActionListener(new  ActionListener() {
             public void actionPerformed(ActionEvent e)
@@ -95,6 +98,8 @@ public class StudentProgress extends JFrame {
     private void preareProgressBar()
     {
         ArrayList<String> lessons = student.getProgress().get(course.getCourseId());
+        if(lessons==null)
+            return;
         progressBar1.setValue((lessons.size()/course.getLessons().size())*100);
     }
 
