@@ -99,22 +99,26 @@ public class CourseController {
     }
     public void updateCourse(Course course)
     {
+        int j=0;
         for(Course i:this.courses)
         {
             if(i.getCourseId().equals(course.getCourseId()))
             {
-                i=course;
+                this.courses.set(j, course);
+                break;
             }
+            j++;
         }
         JsonFileHandler.writeCourses(this.courses);
     }
     public void deleteCourse(String id){
-        for(Course i: this.courses)
-        {
-            if(i.getCourseId().equals(id))
-            {
-                this.courses.remove(i);
-            }
+        Iterator<Course> i = this.courses.iterator();
+        while (i.hasNext()) {
+            Course course = i.next();
+            if (course.getCourseId().equals(id)) {
+                i.remove();
+                break;
+            } //maynfa34 for loop 3l4an bt throw ConcurrentModificationException
         }
         JsonFileHandler.writeCourses(this.courses);
     }
