@@ -52,21 +52,5 @@
     "enrolledStudents": [
       "s01"
     ]
-  },
-  {
-    "courseId": "C03",
-    "title": "rgola w gad3ana",
-    "description": "7lawtak ya youstfandy yabn 3am el borto2an",
-    "instructorId": "i01",
-    "lessons": [
-      {
-        "lessonId": "l-1",
-        "title": "intro",
-        "content": "not so much",
-        "resources": [
-          "youtube"
-        ]
-      }
-    ]
   }
 ]
