@@ -26,6 +26,7 @@ public class AddCourse extends JFrame {
     public AddCourse(Instructor instructor) {
         this.instructor=instructor;
         this.lessons = new ArrayList<>();
+        this.save=false;
         this.setContentPane(Container1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
@@ -82,6 +83,7 @@ public class AddCourse extends JFrame {
                     CourseController cc =new CourseController();
                     cc.createCourse(course);
                     AddCourse.this.dispose();
+
                 }
             }
         });
