@@ -84,15 +84,15 @@ public class InstructorController
 
     }
 
-    public ArrayList<Student> GetEnrolledStudents()
+    public ArrayList<String> GetEnrolledStudents()
     {
-        ArrayList<Student> EnrolledStudents = new ArrayList<>();
+        ArrayList<String> EnrolledStudents = new ArrayList<>();
         ArrayList<Course> CreatedCourses = getCreatedCourses();
         if(CreatedCourses == null)
             return null;
         for (Course course : CreatedCourses)
         {
-            for (Student s : course.getEnrolledStudents())
+            for (String s : course.getEnrolledStudents())
                 {
                 EnrolledStudents.add(s);
                 }
