@@ -61,7 +61,7 @@ public class AuthController {
         return email.matches(emailRegex);
     }
 
-    
+
     public boolean isDublicatedEmail(String email)
     {
         ArrayList<User> users = JsonFileHandler.readUsers();
