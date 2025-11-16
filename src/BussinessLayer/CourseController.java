@@ -31,13 +31,35 @@ public class CourseController {
         }
         return course;
     }
-    public ArrayList<String> getEnrolledStudents(Course course)
+    public User getUserById(String id)
     {
         ArrayList<User> users = new JsonFileHandler().readUsers() ;
+        User user = null;
+        for(User i :users)
+        {
+            if (i.getUserId().equals(id))
+            {
+                user= i;
+                return user;
+            }
+        }
+        return user;
+
+    }
+
+    public ArrayList<String> getEnrolledStudents(Course course)
+    {
+
         ArrayList<String> enrolledStudents = new ArrayList<>();
         for(int i=0;i<course.getEnrolledStudents().toArray().length; i++)
         {
-            
+            String str = course.getEnrolledStudents().get(i);
+            User user=getUserById(str);
+            str+= ","+ user.getUserName();
+            str+=","+user.getEmail();
+            enrolledStudents.add(str);
+
         }
+        return enrolledStudents;
     }
 }
