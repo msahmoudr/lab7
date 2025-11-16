@@ -127,4 +127,5 @@ public class StudentDashboard extends javax.swing.JFrame {
     public static void main(String[] args) {
         new StudentDashboard(new StudentController().getStudentById("s01"));
     }
+
 }

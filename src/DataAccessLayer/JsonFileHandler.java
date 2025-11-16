@@ -39,6 +39,18 @@ public class JsonFileHandler
         {
             Type userListType = new TypeToken<ArrayList<User>>(){}.getType();
             ArrayList<User> userList = gson.fromJson(reader, userListType);
+            for (User user : userList)
+            {
+                if(user instanceof Instructor)
+                {
+                    user.setRole(true);
+
+                }
+                else if(user instanceof Student)
+                {
+                    user.setRole(false);
+                }
+            }
             return userList;
         }
         catch (IOException e)
@@ -122,6 +134,8 @@ public class JsonFileHandler
 
 
     }
+
+
 
 
 }
