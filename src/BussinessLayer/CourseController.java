@@ -19,6 +19,11 @@ public class CourseController {
         this.courses = JsonFileHandler.readCourses();
 
     }
+
+    public ArrayList<Course> getAllCourses() {
+        return courses;
+    }
+
     public Course getCourseById(String id){
         Course course= null;
         for(Course i:courses)
@@ -62,4 +67,47 @@ public class CourseController {
         }
         return enrolledStudents;
     }
+    public void addLesson (Course course,Lesson lesson)
+    {
+        course.getLessons().add(lesson);
+        JsonFileHandler.writeCourses(this.courses);
+
+    }
+    public void removeLesson (Course course,Lesson lesson)
+    {
+        course.getLessons().remove(lesson);
+        JsonFileHandler.writeCourses(this.courses);
+
+    }
+    public void enrollStudent(Course course, Student student)
+    {
+        course.getEnrolledStudents().add(student.getUserId());
+        JsonFileHandler.writeCourses(this.courses);
+
+    }
+    public void removeStudent(Course course, Student student)
+    {
+        course.getEnrolledStudents().remove(student.getUserId());
+        JsonFileHandler.writeCourses(this.courses);
+    }
+    public void createCourse(Course course)
+    {
+        this.courses.add(course);
+        JsonFileHandler.writeCourses(this.courses);
+
+
+    }
+    public void updateCourse(Course course)
+    {
+        for(Course i:this.courses)
+        {
+            if(i.getCourseId().equals(course.getCourseId()))
+            {
+                i=course;
+            }
+        }
+        JsonFileHandler.writeCourses(this.courses);
+    }
+
+
 }
