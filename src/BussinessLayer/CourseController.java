@@ -5,6 +5,8 @@
 package BussinessLayer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import DataAccessLayer.JsonFileHandler;
 
 /**
@@ -116,6 +118,14 @@ public class CourseController {
         while (i.hasNext()) {
             Course course = i.next();
             if (course.getCourseId().equals(id)) {
+                ArrayList<String> studentsId = course.getEnrolledStudents();
+                for(String str: studentsId)
+                {
+                    Student student= (Student) getUserById(str);
+                    student.getEnrolledCourse().remove(id);
+                }
+
+
                 i.remove();
                 break;
             } //maynfa34 for loop 3l4an bt throw ConcurrentModificationException
@@ -137,7 +147,7 @@ public class CourseController {
         Course course = getCourseById(id);
         return course.getLessons();
     }
-    public static void updateCourses()
+    public void updateCourses()
     {
         JsonFileHandler.writeCourses(this.courses);
     }

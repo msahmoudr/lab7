@@ -96,9 +96,10 @@ public class JsonFileHandler
         ArrayList<Instructor> instructors = new ArrayList<>();
         for (User user : users)
         {
-            if(user.isRole())
+            if(user instanceof Instructor)
             {
                 instructors.add((Instructor) user);
+
             }
         }
             return  instructors;
@@ -111,12 +112,17 @@ public class JsonFileHandler
         ArrayList<Student> Students = new ArrayList<>();
         for (User user : users)
         {
-            if(!user.isRole())
+            if(user instanceof Student)
             {
                 Students.add((Student) user);
+
             }
         }
         return  Students;
 
+
     }
+
+
 }
+
