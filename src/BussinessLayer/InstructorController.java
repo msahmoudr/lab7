@@ -68,7 +68,12 @@ public class InstructorController
 
     public boolean DeleteCourse(String courseId)
     {
+        CurrentInstructor.getCreatedCourses().remove(courseId);
+        CourseController courseController = new CourseController();
+        courseController.deleteCourse(courseId);
+        updateInstructor(getCurrentInstructor());
 
+        return true;
     }
 
     public  boolean UpdateCourse(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents)
@@ -76,7 +81,7 @@ public class InstructorController
         Course course = new Course(courseId, title, description, instructorId, lessons, enrolledStudents);
         if(course == null)
             return false;
-        CurrentInstructor.getCreatedCourses().remove(courseId);
+
         CourseController courseController = new CourseController();
         courseController.updateCourse(course);
         updateInstructor(getCurrentInstructor());
@@ -84,15 +89,15 @@ public class InstructorController
 
     }
 
-    public ArrayList<Student> GetEnrolledStudents()
+    public ArrayList<String> GetEnrolledStudents()
     {
-        ArrayList<Student> EnrolledStudents = new ArrayList<>();
+        ArrayList<String> EnrolledStudents = new ArrayList<>();
         ArrayList<Course> CreatedCourses = getCreatedCourses();
         if(CreatedCourses == null)
             return null;
         for (Course course : CreatedCourses)
         {
-            for (Student s : course.getEnrolledStudents())
+            for (String s : course.getEnrolledStudents())
                 {
                 EnrolledStudents.add(s);
                 }
