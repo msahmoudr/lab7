@@ -1,7 +1,8 @@
 [
   {
     "enrolledCourse": [
-      "C01"
+      "C01",
+      "C02"
     ],
     "progress": {
       "C01": [
