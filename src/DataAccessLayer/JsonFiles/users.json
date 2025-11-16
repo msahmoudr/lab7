@@ -1,7 +1,8 @@
 [
   {
     "enrolledCourse": [
-      "C01"
+      "C01",
+      "C02"
     ],
     "progress": {
       "C01": [
@@ -14,16 +15,5 @@
     "email": "alice@edu.com",
     "passwordHash": "pass1",
     "role": false
-  },
-  {
-    "createdCourses": [
-      "C01",
-      "C02"
-    ],
-    "userId": "i01",
-    "userName": "Prof. Bob",
-    "email": "bob@edu.com",
-    "passwordHash": "pass2",
-    "role": true
   }
 ]
