@@ -94,7 +94,7 @@ public class InstructorDashboard {
 
     private void attachListeners() {
         addButton.addActionListener(e -> {
-            // left intentionally empty
+            AddCourse addCourse= new AddCourse(InstructorDashboard.this.instructor);
         });
 
         editButton.addActionListener(e -> {
