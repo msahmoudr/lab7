@@ -60,6 +60,8 @@ public class AuthController {
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         return email.matches(emailRegex);
     }
+
+    
     public boolean isDublicatedEmail(String email)
     {
         ArrayList<User> users = JsonFileHandler.readUsers();
