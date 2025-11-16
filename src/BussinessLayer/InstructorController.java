@@ -38,12 +38,32 @@ public class InstructorController
         return CreatedCourses;
     }
 
+    private void updateInstructor(Instructor instructor)
+    {
+        ArrayList<User> users = JsonFileHandler.readUsers();
+        for(User user : users)
+        {
+            if(user.getUserId().equals(instructor.getUserId()))
+            {
+                user = instructor;
+            }
+        }
+        CurrentInstructor = instructor;
+        JsonFileHandler.writeUsers(users);
+    }
 
     public boolean AddCourse(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents)
     {
         Course course = new Course(courseId, title, description, instructorId, lessons, enrolledStudents);
-        //Add Validation if Course is Repeated
-        //Add course form Course Controller
+
+        if(course == null)
+            return false;
+        CurrentInstructor.getCreatedCourses().add(courseId);
+        CourseController courseController = new CourseController();
+        courseController.createCourse(course);
+        updateInstructor(getCurrentInstructor());
+        return true;
+
     }
 
     public boolean DeleteCourse(String courseId)
@@ -53,6 +73,14 @@ public class InstructorController
 
     public  boolean UpdateCourse(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents)
     {
+        Course course = new Course(courseId, title, description, instructorId, lessons, enrolledStudents);
+        if(course == null)
+            return false;
+        CurrentInstructor.getCreatedCourses().remove(courseId);
+        CourseController courseController = new CourseController();
+        courseController.updateCourse(course);
+        updateInstructor(getCurrentInstructor());
+        return true;
 
     }
 
