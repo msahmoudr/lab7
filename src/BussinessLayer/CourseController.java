@@ -5,6 +5,8 @@
 package BussinessLayer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import DataAccessLayer.JsonFileHandler;
 
 /**
@@ -137,7 +139,7 @@ public class CourseController {
         Course course = getCourseById(id);
         return course.getLessons();
     }
-    public static void updateCourses()
+    public void updateCourses()
     {
         JsonFileHandler.writeCourses(this.courses);
     }

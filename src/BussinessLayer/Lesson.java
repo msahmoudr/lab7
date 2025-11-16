@@ -12,11 +12,13 @@ import java.util.ArrayList;
  *
  * @author msahm
  */
+
 public class Lesson {
     private String lessonId;
     private String title;
     private String content;
     private ArrayList<String> resources;
+    CourseController cc=new CourseController();
 
     public Lesson(String lessonId, String title, String content, ArrayList<String> resources) {
         this.lessonId = lessonId;
@@ -43,7 +45,7 @@ public class Lesson {
 
     public void addResource(String resource) {
         this.resources.add(resource);
-       CourseController.updateCourses();
+       cc.updateCourses();
     }
     public void updateLesson(Lesson lesson)
     {
@@ -51,7 +53,7 @@ public class Lesson {
         this.resources=lesson.resources;
         this.content=lesson.content;
         this.title=lesson.title;
-        CourseController.updateCourses();
+        cc.updateCourses();
     }
 
 
