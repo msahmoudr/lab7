@@ -54,6 +54,7 @@ public class AddCourse extends JFrame {
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(AddCourse.this, "Valid ID you can proceed");
                     save =true;
                 }
             }
@@ -80,6 +81,7 @@ public class AddCourse extends JFrame {
                     Course course =new Course(id,title,description,instructor.getUserId(),lessons);
                     CourseController cc =new CourseController();
                     cc.createCourse(course);
+                    AddCourse.this.dispose();
                 }
             }
         });
