@@ -31,7 +31,7 @@ public class JsonFileHandler
     }
 
 
-    public ArrayList<User> readUsers()
+    public static ArrayList<User> readUsers()
     {
         Gson gson = createGsonForUsers();
 
@@ -88,5 +88,35 @@ public class JsonFileHandler
         {
             return  null;
         }
+    }
+
+    public static ArrayList<Instructor> returnInstructors()
+    {
+        ArrayList<User> users = readUsers();
+        ArrayList<Instructor> instructors = new ArrayList<>();
+        for (User user : users)
+        {
+            if(user.isRole())
+            {
+                instructors.add((Instructor) user);
+            }
+        }
+            return  instructors;
+
+    }
+
+    public static ArrayList<Student> returnStudents()
+    {
+        ArrayList<User> users = readUsers();
+        ArrayList<Student> Students = new ArrayList<>();
+        for (User user : users)
+        {
+            if(!user.isRole())
+            {
+                Students.add((Student) user);
+            }
+        }
+        return  Students;
+
     }
 }
