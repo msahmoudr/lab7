@@ -125,7 +125,7 @@ public class CourseController {
                     student.getEnrolledCourse().remove(id);
                 }
 
-                
+
                 i.remove();
                 break;
             } //maynfa34 for loop 3l4an bt throw ConcurrentModificationException
