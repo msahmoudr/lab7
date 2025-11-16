@@ -29,15 +29,14 @@ public class Signup extends JFrame {
         setSize(400, 300);
         setLocationRelativeTo(null);
 
-        // إعداد الـ ComboBox
         setupComboBox();
 
-        // إضافة الـ Event Listeners
+
         setupEventListeners();
     }
 
     private void setupComboBox() {
-        // تأكد من وجود الخيارات في الـ ComboBox
+
         if (roleComboBox.getItemCount() == 0) {
             roleComboBox.addItem("Student");
             roleComboBox.addItem("Instructor");
@@ -45,7 +44,7 @@ public class Signup extends JFrame {
     }
 
     private void setupEventListeners() {
-        // زر Sign Up
+
         signupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,47 +56,40 @@ public class Signup extends JFrame {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //goBackToLogin();
+                goBackToLogin();
             }
         });
 
-        // يدخل بالإنتر من أي حقل
         usernameField.addActionListener(e -> handleSignUp());
         emailField.addActionListener(e -> handleSignUp());
         passwordField.addActionListener(e -> handleSignUp());
     }
 
     private void handleSignUp() {
-        // جلب البيانات من الحقول
+
         String username = usernameField.getText().trim();
         String email = emailField.getText().trim();
         String password = new String(passwordField.getPassword());
         String selectedRole = (String) roleComboBox.getSelectedItem();
 
-        // تحويل الـ Role لـ boolean
+
         boolean role = "Instructor".equals(selectedRole);
 
-        // التحقق من البيانات
+
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Please fill in all fields",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // محاولة التسجيل
+
         String result = authController.Signup(username, email, password, role);
 
-        // عرض النتيجة
+
         if (result.startsWith("User created successfully")) {
-            JOptionPane.showMessageDialog(this,
-                    "Account created successfully!\nYou can now login with your email and password.",
-                    "Success",
-                    JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Account created successfully!\nYou can now login with your email and password.", "Success", JOptionPane.INFORMATION_MESSAGE);
 
 
-//            goBackToLogin();
+         goBackToLogin();
 
         } else {
             JOptionPane.showMessageDialog(this,
@@ -105,7 +97,7 @@ public class Signup extends JFrame {
                     "Sign Up Failed",
                     JOptionPane.ERROR_MESSAGE);
 
-            // مسح الحقول في حالة الخطأ
+
             if (result.contains("Email already exists") || result.contains("dublicated email")) {
                 emailField.setText("");
             }
@@ -113,22 +105,17 @@ public class Signup extends JFrame {
         }
     }
 
-//    private void goBackToLogin() {
-//        // فتح شاشة اللوجين
-//        Login loginForm = new Login();
-//        loginForm.setVisible(true);
-//
-//        // إغلاق شاشة التسجيل
-//        this.dispose();
-//    }
+    private void goBackToLogin() {
+
+        Login loginForm = new Login( authController);
+        loginForm.setVisible(true);
+
+
+        this.dispose();
+    }
 
 
     public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
