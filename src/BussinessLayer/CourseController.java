@@ -4,10 +4,22 @@
  */
 package BussinessLayer;
 
+import java.util.ArrayList;
+import DataAccessLayer.JsonFileHandler;
+
 /**
  *
  * @author msahm
  */
 public class CourseController {
-    
+
+    private ArrayList<Course> courses;
+
+    public CourseController() {
+        this.courses = JsonFileHandler.readCourses();
+
+    }
+    public Course getCourseById(String id){
+        
+    }
 }
