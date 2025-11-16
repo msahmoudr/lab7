@@ -1,4 +1,4 @@
-package BussinessLayer.Utility;
+package BussinessLayer;
 
 public class UserController {
 }
