@@ -10,6 +10,7 @@ import java.util.Map;
 public class StudentController {
 
     private final ArrayList<Student> students;
+    private  CourseController courseController;
 
     public StudentController() {
         ArrayList<Student> loaded = JsonFileHandler.returnStudents();
@@ -25,11 +26,19 @@ public class StudentController {
         return null;
     }
 
-    public ArrayList<String> getEnrolledCourses(String studentId) {
+    public ArrayList<Course> getEnrolledCourses(String studentId) {
+        ArrayList<Course> result = new ArrayList<>();
+        if (studentId == null) return result;
         Student s = getStudentById(studentId);
-        if (s == null) return new ArrayList<>();
-        ArrayList<String> list = s.getEnrolledCourse();
-        return list == null ? new ArrayList<>() : new ArrayList<>(list);
+        if (s == null) return result;
+        ArrayList<String> ids = s.getEnrolledCourse();
+        if (ids == null) return result;
+        for (String id : ids) {
+            if (id == null) continue;
+            Course c = courseController.getCourseById(id);
+            if (c != null) result.add(c);
+        }
+        return result;
     }
 
     public boolean addEnrolledCourse(String studentId, String courseId) {
