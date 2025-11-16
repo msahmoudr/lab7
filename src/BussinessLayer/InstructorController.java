@@ -27,9 +27,10 @@ public class InstructorController
     public ArrayList<Course> getCreatedCourses()
     {
         ArrayList<Course> CreatedCourses = new ArrayList<>();
+        CourseController CourseController = new CourseController();
         for (String s : CurrentInstructor.getCreatedCourses())
         {
-            //Search Course by id from Course Controller
+            CreatedCourses.add(CourseController.getCourseById(s));
         }
         return CreatedCourses;
     }
