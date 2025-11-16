@@ -23,6 +23,7 @@ public class StudentController {
         for (Student s : students) {
             if (s != null && studentId.equals(s.getUserId())) return s;
         }
+
         return null;
     }
 
