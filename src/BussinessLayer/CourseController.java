@@ -118,6 +118,14 @@ public class CourseController {
         while (i.hasNext()) {
             Course course = i.next();
             if (course.getCourseId().equals(id)) {
+                ArrayList<String> studentsId = course.getEnrolledStudents();
+                for(String str: studentsId)
+                {
+                    Student student= (Student) getUserById(str);
+                    student.getEnrolledCourse().remove(id);
+                }
+
+                
                 i.remove();
                 break;
             } //maynfa34 for loop 3l4an bt throw ConcurrentModificationException
