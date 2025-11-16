@@ -36,7 +36,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         prepareStudentData();
-       refreshCoursesList();
+        refreshCoursesList();
 
         availableCoursesTable.addMouseListener(new MouseAdapter() {
             @Override
