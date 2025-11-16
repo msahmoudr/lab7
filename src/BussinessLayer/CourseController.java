@@ -129,6 +129,14 @@ public class CourseController {
         }
         return instructorCourses;
     }
+    public ArrayList<Lesson> getLessonsByCourse(String id){
+        Course course = getCourseById(id);
+        return course.getLessons();
+    }
+    public static void updateCourses()
+    {
+        JsonFileHandler.writeCourses(this.courses);
+    }
 
 
 }
