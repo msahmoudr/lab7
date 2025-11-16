@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package BussinessLayer;
 
-/**
- *
- * @author msahm
- */
-public class Instructor {
-    
+import java.util.ArrayList;
+
+public class Instructor extends User
+{
+    private ArrayList<String> createdCourses;
+
+    public Instructor(String userId, String userName, String email, String passwordHash, boolean role, ArrayList<String> createdCourses) {
+        super(userId, userName, email, passwordHash, role);
+        this.createdCourses = createdCourses;
+    }
+
+    public ArrayList<String> getCreatedCourses() {
+        return createdCourses;
+    }
 }
