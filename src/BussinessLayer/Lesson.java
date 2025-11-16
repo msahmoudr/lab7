@@ -4,6 +4,8 @@
  */
 package BussinessLayer;
 
+import DataAccessLayer.JsonFileHandler;
+
 import java.util.ArrayList;
 
 /**
@@ -14,6 +16,7 @@ public class Lesson {
     private String lessonId;
     private String title;
     private String content;
+    private ArrayList<String> resources;
 
     public Lesson(String lessonId, String title, String content, ArrayList<String> resources) {
         this.lessonId = lessonId;
@@ -37,17 +40,32 @@ public class Lesson {
     public ArrayList<String> getResources() {
         return resources;
     }
-    private ArrayList<String> resources;
+
+    public void addResource(String resource) {
+        this.resources.add(resource);
+       CourseController.updateCourses();
+    }
+    public void updateLesson(Lesson lesson)
+    {
+        this.lessonId=lesson.lessonId;
+        this.resources=lesson.resources;
+        this.content=lesson.content;
+        this.title=lesson.title;
+        CourseController.updateCourses();
+    }
+
+
+
     
     
     
-    
+    /*
     @Override
     public String toString()
     { 
         
         return this.lessonId + "^" + this.title + "^" + this.content + "^" + this.resources.toString() ;
-    }
+    }*/
     
     
 }
