@@ -34,7 +34,8 @@ public class AuthController {
     }
 
 
-    private String validateInputs(String username, String email, String password) {
+    public String validateInputs(String username, String email, String password) {
+
         if (username == null || username.trim().isEmpty()) {
             return "Username is required";
         }
@@ -47,15 +48,47 @@ public class AuthController {
         if (password == null || password.trim().isEmpty()) {
             return "Password is required";
         }
-        if (password.length() < 6) {
-            return "Password must be at least 6 characters";
+        if (password.length() < 3) {
+            return "Password must be at least 4 characters";
         }
+
+
         return null;
     }
 
-    private boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         return email.matches(emailRegex);
+    }
+
+    
+    public boolean isDublicatedEmail(String email)
+    {
+        ArrayList<User> users = JsonFileHandler.readUsers();
+        for (int i = 0; i < users.size(); i++)
+        {
+            if (users.get(i).getEmail().equalsIgnoreCase(email))
+            {
+                return true;
+            }
+        }
+        return false ;
+    }
+
+    public static User findUserById(String userId) {
+
+        ArrayList<User> users = JsonFileHandler.readUsers();
+        if (users == null || users.isEmpty()) {
+            return null;
+        }
+
+        for (User user : users) {
+            if (user.getUserId().equals(userId)) {
+                return user;
+            }
+        }
+
+        return null;
     }
 
 
@@ -73,11 +106,8 @@ public class AuthController {
         }
 
 
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equalsIgnoreCase(email)) {
-                return "Email already exists";
-            }
-        }
+      if(isDublicatedEmail(email))
+          return "dublicated email";
 
 
         String passwordHash = PasswordHasher.hashPassword(plainPassword);
