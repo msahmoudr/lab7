@@ -16,10 +16,6 @@
     "role": false
   },
   {
-    "createdCourses": [
-      "C01",
-      "C02"
-    ],
     "userId": "i01",
     "userName": "Prof. Bob",
     "email": "bob@edu.com",
@@ -33,6 +29,15 @@
     "userName": "ahmed",
     "email": "ahmed12@gmail.com",
     "passwordHash": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+    "role": false
+  },
+  {
+    "enrolledCourse": [],
+    "progress": {},
+    "userId": "25ddf7ba-f2d6-4e87-b4e6-e17c382f64b3",
+    "userName": "mo",
+    "email": "mo13@gmail.com",
+    "passwordHash": "f76043a74ec33b6aefbb289050faf7aa8d482095477397e3e63345125d49f527",
     "role": false
   }
 ]
