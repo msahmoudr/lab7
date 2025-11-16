@@ -25,5 +25,31 @@
     "enrolledStudents": [
       "s01"
     ]
+  },
+  {
+    "courseId": "C02",
+    "title": "logic 101",
+    "description": "Beginner logic",
+    "instructorId": "i01",
+    "lessons": [
+      {
+        "lessonId": "L01",
+        "title": "Intro",
+        "content": "Welcome",
+        "resources": [
+          "doc1.pdf"
+        ]
+      },
+      {
+        "lessonId": "L02",
+        "title": "Variables",
+        "content": "...",
+        "resources": [
+          "doc2.pdf"
+        ]
+      }
+    ],
+    "enrolledStudents": [
+    ]
   }
 ]
