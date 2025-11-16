@@ -108,6 +108,27 @@ public class CourseController {
         }
         JsonFileHandler.writeCourses(this.courses);
     }
+    public void deleteCourse(String id){
+        for(Course i: this.courses)
+        {
+            if(i.getCourseId().equals(id))
+            {
+                this.courses.remove(i);
+            }
+        }
+        JsonFileHandler.writeCourses(this.courses);
+    }
+    public ArrayList<Course> getCourseByInstructor(String id){
+        ArrayList<Course> instructorCourses=new ArrayList<>();
+        for(Course i: this.courses)
+        {
+            if(i.getInstructorId().equals(id))
+            {
+                instructorCourses.add(i);
+            }
+        }
+        return instructorCourses;
+    }
 
 
 }
