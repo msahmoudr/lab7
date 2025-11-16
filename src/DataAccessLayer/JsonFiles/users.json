@@ -17,11 +17,14 @@
     "role": false
   },
   {
+    "createdCourses": [
+      "C01",
+      "C02"
+    ],
     "userId": "i01",
     "userName": "Prof. Bob",
     "email": "bob@edu.com",
     "passwordHash": "pass2",
-    "role": false
+    "role": true
   }
-
 ]
