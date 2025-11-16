@@ -7,10 +7,10 @@ import BussinessLayer.StudentController;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class StudentDashboard extends javax.swing.JFrame {
@@ -21,7 +21,6 @@ public class StudentDashboard extends javax.swing.JFrame {
     private JLabel lblStudentId;
     private JLabel lblUserName;
     private JLabel lblEmail;
-    private JButton btnLogout;
     private Student student;
 
     public StudentDashboard(Student s)
@@ -37,7 +36,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         prepareStudentData();
-        refreshCoursesList();
+       refreshCoursesList();
 
         availableCoursesTable.addMouseListener(new MouseAdapter() {
             @Override
@@ -59,21 +58,8 @@ public class StudentDashboard extends javax.swing.JFrame {
                             courseController.enrollStudent(courseController.getCourseById(selectedCourseId), student);
                             refreshCoursesList();
                         }
-                        else
-                        {
-                            System.out.println(new CourseController().getCourseById(selectedCourseId).getCourseId());
-                            new StudentProgress(new CourseController().getCourseById(selectedCourseId), student);
-                        }
                     }
                 }
-            }
-        });
-
-        btnLogout.addActionListener(new  ActionListener()
-        {
-            public void  actionPerformed(ActionEvent e)
-            {
-               
             }
         });
 
