@@ -31,6 +31,7 @@ public class Course {
         this.description = description;
         this.instructorId = instructorId;
         this.lessons = lessons;
+        this.enrolledStudents =new ArrayList<>();
     }
 
 
@@ -65,10 +66,6 @@ public class Course {
     
     
     
-  
-    
-    
-    
-    
+
     
 }

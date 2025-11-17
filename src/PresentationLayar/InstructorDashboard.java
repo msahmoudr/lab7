@@ -98,9 +98,7 @@ public class InstructorDashboard {
             addCourse.setVisible(true);
         });
 
-        editButton.addActionListener(e -> {
-            // left intentionally empty
-        });
+        editButton.addActionListener(e -> onEditCourse());
 
         deleteButton.addActionListener(e -> onDeleteCourse());
         viewStudentsButton.addActionListener(e -> onViewStudents());
@@ -224,7 +222,21 @@ public class InstructorDashboard {
     }
 
     public JPanel getMainPanel() { return mainPanel; }
-//here
+
+    private void onEditCourse() {
+        int sel = Courses.getSelectedRow();
+        if (sel == -1) {
+            JOptionPane.showMessageDialog(mainPanel, "Select a course first.");
+            return;
+        }
+
+        // Direct access - works if table isn't sorted/filtered
+        Course selectedCourse = courses.get(sel);
+
+        EditCourse editCoursePanel = new EditCourse(selectedCourse);
+        editCoursePanel.setVisible(true);
+    }
+    //here
     public static void main(String[] args) {
         Instructor demo = new Instructor(
                 "i01",
