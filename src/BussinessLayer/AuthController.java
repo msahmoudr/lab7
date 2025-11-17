@@ -4,10 +4,7 @@ import DataAccessLayer.JsonFileHandler;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class AuthController {
 
@@ -113,7 +110,8 @@ public class AuthController {
         String passwordHash = PasswordHasher.hashPassword(plainPassword);
 
 
-        String userId = UUID.randomUUID().toString();
+        String userId = (System.currentTimeMillis() + "").substring(7)
+                + (new Random().nextInt(90) + 10);
 
 
         ArrayList<String> createdCourses = new ArrayList<>();

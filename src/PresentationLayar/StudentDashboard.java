@@ -58,6 +58,9 @@ public class StudentDashboard extends javax.swing.JFrame {
                             courseController.enrollStudent(courseController.getCourseById(selectedCourseId), student);
                             refreshCoursesList();
                         }
+                        else{
+                            new StudentProgress(new CourseController().getCourseById(selectedCourseId), student);
+                        }
                     }
                 }
             }
