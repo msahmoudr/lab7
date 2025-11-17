@@ -26,5 +26,64 @@
     "email": "bob@edu.com",
     "passwordHash": "pass2",
     "role": true
+  },
+  {
+    "enrolledCourse": [
+      "C03"
+    ],
+    "progress": {},
+    "userId": "bf1a798e-59e7-4fc2-88e7-ddd2a972323b",
+    "userName": "ali",
+    "email": "ali@gmail.com",
+    "passwordHash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "role": false
+  },
+  {
+    "enrolledCourse": [
+      "C03"
+    ],
+    "progress": {},
+    "userId": "3692140f-f443-4cd1-af0d-ead7575b3cbc",
+    "userName": "mo",
+    "email": "mo@gmail.com",
+    "passwordHash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "role": false
+  },
+  {
+    "enrolledCourse": [
+      "C03",
+      "C02"
+    ],
+    "progress": {},
+    "userId": "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+    "userName": "aaaa",
+    "email": "aa@gmail.com",
+    "passwordHash": "db2e7f1bd5ab9968ae76199b7cc74795ca7404d5a08d78567715ce532f9d2669",
+    "role": false
+  },
+  {
+    "createdCourses": [],
+    "userId": "6c3329ba-0bf2-41e6-9efb-8bde5ce5892b",
+    "userName": "sayed",
+    "email": "sa@gmail.com",
+    "passwordHash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "role": true
+  },
+  {
+    "enrolledCourse": [],
+    "progress": {},
+    "userId": "e7c1371f-7cb7-4f34-a964-3931d26feda2",
+    "userName": "mr",
+    "email": "mr@gmail.com",
+    "passwordHash": "2926a2731f4b312c08982cacf8061eb14bf65c1a87cc5d70e864e079c6220731",
+    "role": false
+  },
+  {
+    "createdCourses": [],
+    "userId": "3644d12e-79cf-423b-a70f-32154d0ef029",
+    "userName": "lol",
+    "email": "lol@gmail.com",
+    "passwordHash": "41c991eb6a66242c0454191244278183ce58cf4a6bcd372f799e4b9cc01886af",
+    "role": true
   }
 ]

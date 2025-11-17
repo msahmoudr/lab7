@@ -230,13 +230,13 @@ public class InstructorDashboard {
             return;
         }
 
-        // Direct access - works if table isn't sorted/filtered
+
         Course selectedCourse = courses.get(sel);
 
         EditCourse editCoursePanel = new EditCourse(selectedCourse);
         editCoursePanel.setVisible(true);
     }
-    //here
+
     public static void main(String[] args) {
         Instructor demo = new Instructor(
                 "i01",
@@ -257,7 +257,7 @@ public class InstructorDashboard {
             f.setVisible(true);
         });
     }
-//here
+
   
 
     private void initComponents() {}

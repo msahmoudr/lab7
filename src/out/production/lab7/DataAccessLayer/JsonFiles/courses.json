@@ -50,7 +50,8 @@
       }
     ],
     "enrolledStudents": [
-      "s01"
+      "s01",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c"
     ]
   },
   {
@@ -66,7 +67,25 @@
         "resources": [
           "youtube"
         ]
+      },
+      {
+        "lessonId": "l-1",
+        "title": "second Lecture",
+        "content": "elfrawla bta3 el frawla",
+        "resources": [
+          "elrayes met2al"
+        ]
       }
+    ],
+    "enrolledStudents": [
+      "bf1a798e-59e7-4fc2-88e7-ddd2a972323b",
+      "3692140f-f443-4cd1-af0d-ead7575b3cbc",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c",
+      "8fd41108-0f96-428e-9584-45fc5f9e6f5c"
     ]
   }
 ]

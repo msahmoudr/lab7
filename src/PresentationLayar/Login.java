@@ -1,7 +1,9 @@
 package PresentationLayar;
 
 import BussinessLayer.AuthController;
+import BussinessLayer.Instructor;
 import BussinessLayer.StudentController;
+import BussinessLayer.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -63,10 +65,22 @@ public class Login extends JFrame {
 
             String role = authController.GetCurrentUserRole();
             dispose();
-
+             User logged=authController.GetCurrentUser();
             if ("Instructor".equals(role)) {
-                //................
-            } else {
+
+                Instructor instr = (Instructor) logged;
+
+                InstructorDashboard dash = new InstructorDashboard(instr);
+
+                JFrame f = new JFrame("Instructor Dashboard");
+                f.setContentPane(dash.getMainPanel());
+                f.setSize(900, 520);
+                f.setLocationRelativeTo(null);
+                f.setVisible(true);
+
+                dispose();
+            }
+                else {
                 new StudentDashboard(new StudentController().getStudentById(authController.GetCurrentUser().getUserId()));
             }
 
