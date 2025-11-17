@@ -5,35 +5,42 @@
 package BussinessLayer;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-/**
- *
- * @author msahm
- */
 public class Course {
     private String courseId;
     private String title;
     private String description;
     private String instructorId;
     private ArrayList<Lesson> lessons;
-    private ArrayList<String> enrolledStudents;
-    public Course(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents) {
+    private ArrayList<String> enrolledStudents = new ArrayList<>(); // تهيئة افتراضية
+
+    // Constructor كامل (يشمل enrolledStudents)
+    public Course(String courseId, String title, String description, String instructorId,
+                  ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents) {
         this.courseId = courseId;
         this.title = title;
         this.description = description;
         this.instructorId = instructorId;
-        this.lessons = lessons;
-        this.enrolledStudents = enrolledStudents;
+        this.lessons = lessons != null ? lessons : new ArrayList<>();
+        this.enrolledStudents = enrolledStudents != null ? enrolledStudents : new ArrayList<>();
     }
+
+    // Constructor بدون enrolledStudents (سيستخدم قائمة فارغة)
     public Course(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons) {
         this.courseId = courseId;
         this.title = title;
         this.description = description;
         this.instructorId = instructorId;
-        this.lessons = lessons;
+        this.lessons = lessons != null ? lessons : new ArrayList<>();
+        this.enrolledStudents = new ArrayList<>();
     }
 
-
+    // Optional: constructor فارغ إذا احتجت
+    public Course() {
+        this.lessons = new ArrayList<>();
+        this.enrolledStudents = new ArrayList<>();
+    }
 
     public String getCourseId() {
         return courseId;
@@ -52,23 +59,46 @@ public class Course {
     }
 
     public ArrayList<Lesson> getLessons() {
+        if (lessons == null) lessons = new ArrayList<>();
         return lessons;
     }
 
+    // getter دفاعي — لا يرجع null أبداً
     public ArrayList<String> getEnrolledStudents() {
+        if (enrolledStudents == null) enrolledStudents = new ArrayList<>();
         return enrolledStudents;
     }
 
+    public void setEnrolledStudents(ArrayList<String> enrolledStudents) {
+        this.enrolledStudents = enrolledStudents != null ? enrolledStudents : new ArrayList<>();
+    }
 
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
+    // helpers مفيدة
+    public boolean addEnrolledStudent(String studentId) {
+        if (studentId == null) return false;
+        if (enrolledStudents == null) enrolledStudents = new ArrayList<>();
+        if (!enrolledStudents.contains(studentId)) {
+            return enrolledStudents.add(studentId);
+        }
+        return false;
+    }
+
+    public boolean removeEnrolledStudent(String studentId) {
+        if (studentId == null || enrolledStudents == null) return false;
+        return enrolledStudents.remove(studentId);
+    }
+
+    // equals/hashCode (اختياري لكن مفيد)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+        Course course = (Course) o;
+        return Objects.equals(courseId, course.courseId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseId);
+    }
 }
