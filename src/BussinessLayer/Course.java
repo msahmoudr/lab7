@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package BussinessLayer;
 
 import java.util.ArrayList;
@@ -13,9 +10,8 @@ public class Course {
     private String description;
     private String instructorId;
     private ArrayList<Lesson> lessons;
-    private ArrayList<String> enrolledStudents = new ArrayList<>(); // تهيئة افتراضية
+    private ArrayList<String> enrolledStudents = new ArrayList<>();
 
-    // Constructor كامل (يشمل enrolledStudents)
     public Course(String courseId, String title, String description, String instructorId,
                   ArrayList<Lesson> lessons, ArrayList<String> enrolledStudents) {
         this.courseId = courseId;
@@ -26,7 +22,6 @@ public class Course {
         this.enrolledStudents = enrolledStudents != null ? enrolledStudents : new ArrayList<>();
     }
 
-    // Constructor بدون enrolledStudents (سيستخدم قائمة فارغة)
     public Course(String courseId, String title, String description, String instructorId, ArrayList<Lesson> lessons) {
         this.courseId = courseId;
         this.title = title;
@@ -36,7 +31,7 @@ public class Course {
         this.enrolledStudents = new ArrayList<>();
     }
 
-    // Optional: constructor فارغ إذا احتجت
+
     public Course() {
         this.lessons = new ArrayList<>();
         this.enrolledStudents = new ArrayList<>();
@@ -63,7 +58,7 @@ public class Course {
         return lessons;
     }
 
-    // getter دفاعي — لا يرجع null أبداً
+
     public ArrayList<String> getEnrolledStudents() {
         if (enrolledStudents == null) enrolledStudents = new ArrayList<>();
         return enrolledStudents;
@@ -73,7 +68,7 @@ public class Course {
         this.enrolledStudents = enrolledStudents != null ? enrolledStudents : new ArrayList<>();
     }
 
-    // helpers مفيدة
+    
     public boolean addEnrolledStudent(String studentId) {
         if (studentId == null) return false;
         if (enrolledStudents == null) enrolledStudents = new ArrayList<>();
@@ -88,7 +83,7 @@ public class Course {
         return enrolledStudents.remove(studentId);
     }
 
-    // equals/hashCode (اختياري لكن مفيد)
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
