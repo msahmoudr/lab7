@@ -26,5 +26,26 @@
     "email": "bob@edu.com",
     "passwordHash": "pass2",
     "role": true
+  },
+  {
+    "enrolledCourse": [
+      "C03"
+    ],
+    "progress": {},
+    "userId": "bf1a798e-59e7-4fc2-88e7-ddd2a972323b",
+    "userName": "ali",
+    "email": "ali@gmail.com",
+    "passwordHash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "role": false
+  },
+
+  {
+    "enrolledCourse": [],
+    "progress": {},
+    "userId": "32760794",
+    "userName": "kkkk",
+    "email": "kk@gmail.com",
+    "passwordHash": "d7697570462f7562b83e81258de0f1e41832e98072e44c36ec8efec46786e24e",
+    "role": false
   }
 ]
