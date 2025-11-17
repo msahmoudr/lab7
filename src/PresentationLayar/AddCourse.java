@@ -26,6 +26,7 @@ public class AddCourse extends JFrame {
     public AddCourse(Instructor instructor) {
         this.instructor=instructor;
         this.lessons = new ArrayList<>();
+        this.save=false;
         this.setContentPane(Container1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
@@ -54,6 +55,7 @@ public class AddCourse extends JFrame {
                 }
                 else
                 {
+                    JOptionPane.showMessageDialog(AddCourse.this, "Valid ID you can proceed");
                     save =true;
                 }
             }
@@ -80,6 +82,8 @@ public class AddCourse extends JFrame {
                     Course course =new Course(id,title,description,instructor.getUserId(),lessons);
                     CourseController cc =new CourseController();
                     cc.createCourse(course);
+                    AddCourse.this.dispose();
+
                 }
             }
         });
