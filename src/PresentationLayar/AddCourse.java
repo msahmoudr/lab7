@@ -89,11 +89,7 @@ public class AddCourse extends JFrame {
         });
     }
 
-
-
-
-
-
+    
 
 
 

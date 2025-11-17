@@ -236,7 +236,7 @@ public class InstructorDashboard {
         EditCourse editCoursePanel = new EditCourse(selectedCourse);
         editCoursePanel.setVisible(true);
     }
-    //here
+
     public static void main(String[] args) {
         Instructor demo = new Instructor(
                 "i01",
@@ -257,7 +257,7 @@ public class InstructorDashboard {
             f.setVisible(true);
         });
     }
-//here
+
   
 
     private void initComponents() {}
