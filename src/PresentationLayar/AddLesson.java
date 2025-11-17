@@ -17,10 +17,11 @@ public class AddLesson extends JFrame {
     private JLabel lessonContentLabel;
     private JLabel lessonResourcesLabel;
     private JTextArea lessonContentTextArea;
-    private static int counter=1;
+    private static int counter;
 
     public AddLesson(ArrayList<Lesson> lessons) {
         this.lessons =lessons;
+        this.counter= lessons.size()+1;
         this.setContentPane(resourcesLabel);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("Add New Lesson");

@@ -44,6 +44,8 @@ public class RemoveLesson extends JFrame {
                     JOptionPane.showMessageDialog(RemoveLesson.this, "Lesson ID not found");
                 }else{
                     removeLesson(id,course);
+                    JOptionPane.showMessageDialog(RemoveLesson.this, "Lesson deleted successfully");
+                    RemoveLesson.this.dispose();
                 }
 
             }

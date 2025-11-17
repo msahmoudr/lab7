@@ -66,6 +66,14 @@
         "resources": [
           "youtube"
         ]
+      },
+      {
+        "lessonId": "L-1",
+        "title": "second Lecture",
+        "content": "elfrawla bta3 el frawla",
+        "resources": [
+          "elrayes met2al"
+        ]
       }
     ]
   }
