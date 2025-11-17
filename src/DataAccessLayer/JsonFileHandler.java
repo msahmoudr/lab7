@@ -24,7 +24,7 @@ public class JsonFileHandler
                 RuntimeTypeAdapterFactory.of(User.class, "role")
                         .registerSubtype(Student.class, "false")
                         .registerSubtype(Instructor.class, "true");
-        return new GsonBuilder()
+        return new com.google.gson.GsonBuilder()
                 .registerTypeAdapterFactory(adapterFactory)
                 .setPrettyPrinting()
                 .create();
@@ -35,7 +35,7 @@ public class JsonFileHandler
     {
         Gson gson = createGsonForUsers();
 
-        try(FileReader reader = new FileReader(FilesName.usersFile))
+        try(FileReader reader = new FileReader("DataAccessLayer/JsonFiles/users.json"))
         {
             Type userListType = new TypeToken<ArrayList<User>>(){}.getType();
             ArrayList<User> userList = gson.fromJson(reader, userListType);
@@ -90,7 +90,7 @@ public class JsonFileHandler
     public static ArrayList<Course> readCourses()
     {
         Gson gson = new Gson();
-        try(FileReader reader = new FileReader(FilesName.coursesFile))
+        try(FileReader reader = new FileReader("DataAccessLayer/JsonFiles/courses.json"))
         {
             Type courseListType = new TypeToken<ArrayList<Course>>(){}.getType();
             ArrayList<Course> courseList = gson.fromJson(reader, courseListType);
@@ -136,7 +136,12 @@ public class JsonFileHandler
     }
 
 
+    public static void main(String[] args) {
+        ArrayList<User> users = readUsers();
+        users.add((User)new Student("S01","sdfa", "adfdadfaf","dadafdadfaadff",false,new ArrayList<String>(),null));
 
+
+    }
 
 }
 

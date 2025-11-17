@@ -51,12 +51,9 @@ public class StudentDashboard extends javax.swing.JFrame {
                     else
                     {
                         String selectedCourseId = getSelectedCourseId();
-                        if(!student.getEnrolledCourse().contains(selectedCourseId))
+                        if(!student.getEnrolledCourse().contains(selectedCourseId)||student.getEnrolledCourse().isEmpty())
                         {
-                            new StudentController().addEnrolledCourse(student.getUserId(), selectedCourseId);
-                            CourseController courseController = new CourseController();
-                            courseController.enrollStudent(courseController.getCourseById(selectedCourseId), student);
-                            refreshCoursesList();
+                           enroll();
                         }
                     }
                 }
@@ -65,8 +62,22 @@ public class StudentDashboard extends javax.swing.JFrame {
 
 
 
+
         setVisible(true);
 
+    }
+    private void enroll()
+    {
+        String selectedCourseId = getSelectedCourseId();
+        StudentController studentController = new StudentController();
+        studentController.addEnrolledCourse(student.getUserId(), selectedCourseId);
+
+        CourseController courseController = new CourseController();
+        courseController.enrollStudent(courseController.getCourseById(selectedCourseId), student);
+
+
+        this.student = studentController.getStudentById(student.getUserId());
+        refreshCoursesList();
     }
     private String getSelectedCourseId()
     {
@@ -87,10 +98,12 @@ public class StudentDashboard extends javax.swing.JFrame {
             Course course = courses.get(i);
             data[i][0] = course.getCourseId();
             data[i][1] = course.getTitle();
-           if(course.getEnrolledStudents().contains(student.getUserId()))
-            data[i][2] = "Enrolled";
-           else
-            data[i][2] = "avaliable";
+
+            if(course.getEnrolledStudents().contains(student.getUserId()))
+                data[i][2] = "Enrolled";
+            else
+                data[i][2] = "avaliable";
+
 
         }
 
