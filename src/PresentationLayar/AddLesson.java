@@ -21,7 +21,7 @@ public class AddLesson extends JFrame {
 
     public AddLesson(ArrayList<Lesson> lessons) {
         this.lessons =lessons;
-        this.setContentPane(resourcesLabel); // Use your main panel
+        this.setContentPane(resourcesLabel);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("Add New Lesson");
         this.pack();
